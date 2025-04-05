@@ -1,0 +1,13 @@
+export { default as Header } from "../components/Header/Header";
+export { default as Menu } from "../components/Header/Menu";
+export { default as SideMenu } from "../components/Header/SideMenu";
+export { default as Layout } from "../components/Layout";
+export { default as Banner } from "../components/Banner";
+export { default as Guarantee } from "../components/Guarantee";
+export { default as Popular_Packages } from "../components/Popular_Packages";
+export { default as Popular_Destinations } from "../components/Popular_Destinations";
+export { default as Footer } from "../components/Footer";
+export { default as Whatsapp } from "../components/Whatsapp";
+export { default as ResuableHeader } from "../components/ResuableHeader";
+export { default as ResuableTabs } from "../components/ResuableTabs";
+export { default as Model } from "../components/Model";
