@@ -89,8 +89,8 @@ const Contact = () => {
     if (validateForm()) {
       setSending(true);
       try {
-        await emailjs.send("service_8kjvgcc", "template_k5y8oud", formData, {
-          publicKey: "mXLu8RBXdLxrYgSVz",
+        await emailjs.send("service_l35c8rl", "template_9r2reub", formData, {
+          publicKey: "xq1guUbqbRoxUe2ZF",
         });
         toast.success("Message Successfully Send 🎉🎉🎉");
         setSending(false);
@@ -116,10 +116,7 @@ const Contact = () => {
       <div className="contact_form_container">
         <div className="left_form_section_container">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12596.448357892084!2d74.75599835597708!3d33.86289937165809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38e1ed77b20f7079%3A0xea008d584d6f5394!2sCharar-i-Sharief%20191112!5e1!3m2!1sen!2sin!4v1743469400275!5m2!1sen!2sin"
-            // width="600"
-            // height="450"
-            //   style="border:0;"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.756647405955!2d74.7167149498626!3d33.95377091125647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38e193a460726a03%3A0x8db05a711d9c7eb9!2sKremshore%20191113!5e1!3m2!1sen!2sin!4v1744612566827!5m2!1sen!2sin"
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
@@ -215,7 +212,7 @@ const Contact = () => {
               <div className="icons">
                 <FaLocationDot />
               </div>
-              <h2>Main Market Kremshore, Budgam, Kashmir, 191111</h2>
+              <h2>Kremshore, Budgam, Kashmir, 191111</h2>
             </div>
             <div className="icon_wrapper">
               <div className="icons">
@@ -357,12 +354,11 @@ const Section = styled.div`
             margin-top: 2rem;
             background-color: ${Constants.Colors.secondary_color};
             border: none;
-            /* max-width: 30rem;
-            width: 100%; */
             border-radius: 0.4rem;
             font-size: 1.6rem;
             cursor: pointer;
             transition: ease-in-out 0.3s;
+            color: ${Constants.Colors.white_color};
             &:hover {
               background-color: ${Constants.Colors.hover_color};
             }
@@ -437,7 +433,7 @@ const Section = styled.div`
 
             svg {
               font-size: 3rem;
-              color: ${Constants.Colors.primary_color};
+              color: ${Constants.Colors.white_color};
 
               @media only screen and (max-width: 550px) {
                 font-size: 2rem;
@@ -481,7 +477,7 @@ const Section = styled.div`
 
             svg {
               font-size: 3rem;
-              color: ${Constants.Colors.primary_color};
+              color: ${Constants.Colors.white_color};
 
               @media only screen and (max-width: 550px) {
                 font-size: 2rem;

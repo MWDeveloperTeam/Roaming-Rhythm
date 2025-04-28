@@ -14,8 +14,8 @@ const Popular_Packages = () => {
   const { packages } = webData.All_Data;
   const pk01 = packages[0];
   const pk02 = packages[1];
-  const pk03 = packages[4];
-  const pk04 = packages[5];
+  const pk03 = packages[2];
+  const pk04 = packages[4];
   const pop_pkgs = [pk01, pk02, pk03, pk04];
 
   return (
@@ -55,7 +55,7 @@ const Section = styled.section`
     gap: 1.2rem;
     @media only screen and (max-width: 650px) {
       flex-direction: column;
-      align-items: center;
+      /* align-items: center; */
     }
     .title_wrapper {
       p {
@@ -104,14 +104,20 @@ const Section = styled.section`
       }
 
       a {
-        color: ${Constants.Colors.primary_color};
-        padding: 1.6rem 2rem;
-        background-color: ${Constants.Colors.hover_color};
         display: flex;
         font-size: 1.6rem;
         align-items: center;
         gap: 1rem;
         border-radius: 0.4rem;
+        transition: ease-in-out 0.3s;
+        padding: 1.2rem 1.6rem;
+        width: max-content;
+        color: ${Constants.Colors.white_color};
+        background-color: ${Constants.Colors.secondary_color};
+
+        &:hover {
+          background-color: ${Constants.Colors.hover_color};
+        }
 
         @media only screen and (max-width: 850px) {
           padding: 1.4rem 1.6rem;
@@ -129,6 +135,10 @@ const Section = styled.section`
     gap: 2rem;
     margin-top: 4rem;
     @media only screen and (max-width: 1340px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media only screen and (max-width: 1070px) {
       grid-template-columns: repeat(2, 1fr);
     }
 

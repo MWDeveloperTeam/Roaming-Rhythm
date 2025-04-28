@@ -7,8 +7,8 @@ export const DataProvider = (props) => {
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [open, setOpen] = useState(false);
   const [currentPackage, setCurrentPackage] = useState(null);
-
-  
+  const [currentDestination, setCurrentDestination] = useState(null);
+  const [des_open, setDes_Open] = useState(false);
 
   const handleToggle = (e) => {
     if (e.target.className !== "book_now_button") {
@@ -26,7 +26,11 @@ export const DataProvider = (props) => {
         handleToggle,
         setCurrentPackage,
         currentPackage,
-        setOpen
+        setOpen,
+        des_open,
+        setDes_Open,
+        currentDestination,
+        setCurrentDestination,
       }}
     >
       {props.children}

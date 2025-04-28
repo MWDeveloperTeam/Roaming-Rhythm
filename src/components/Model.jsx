@@ -9,14 +9,16 @@ import { MdFamilyRestroom } from "react-icons/md";
 const Model = () => {
   const [activeModelTab, setActiveModelTab] = useState("discription");
   const webData = useContext(DataContext);
-  const { currentPackage, setCurrentPackage, setOpen } = webData;
+  const { currentPackage, setCurrentPackage, setOpen, All_Data } = webData;
 
   return (
     <Section>
       <div className="model_wrapper">
         <div className="model_header">
           <div className="header_title">
-            <h1>{currentPackage.title}</h1>
+            <h1 style={{ color: Constants.Colors.secondary_color }}>
+              {currentPackage.title}
+            </h1>
           </div>
           <div className="header_close_button">
             <button
@@ -43,7 +45,7 @@ const Model = () => {
               <h3>{currentPackage.family}</h3>
             </div>
             <div className="model_price">
-              <FaRupeeSign />
+              {/* <FaRupeeSign /> */}
               <h1>{currentPackage.price}</h1>
             </div>
           </div>
@@ -56,7 +58,10 @@ const Model = () => {
                     onClick={() => setActiveModelTab(ele)}
                     style={
                       activeModelTab === ele
-                        ? { backgroundColor: Constants.Colors.secondary_color }
+                        ? {
+                            backgroundColor: Constants.Colors.secondary_color,
+                            color: "#fff",
+                          }
                         : null
                     }
                   >
@@ -68,7 +73,36 @@ const Model = () => {
             <div className="model_content_wrapper">
               <div className="model_content">
                 {activeModelTab === "discription" ? (
-                  <p>{currentPackage?.description}</p>
+                  <div className="discription_wrapper">
+                    <p>{currentPackage?.description}</p>
+                    <div className="Inclusions_Exclusions">
+                      <h1>Inclusions & Exclusions</h1>
+                      <h2 className="inclusions">Inclusions</h2>
+                      <ul>
+                        {All_Data?.inclusions?.map((curr, i) => (
+                          <li key={i}>{curr}</li>
+                        ))}
+                      </ul>
+                      <h2 className="inclusions">Exclusions</h2>
+                      <ul>
+                        {All_Data?.exclusions?.map((curr, i) => (
+                          <li key={i}>{curr}</li>
+                        ))}
+                      </ul>
+
+                      <div className="experience_wrraper">
+                        <h1 style={{ color: Constants.Colors.secondary_color }}>
+                          Experience the magic of Kashmir
+                        </h1>
+                        <p>{All_Data.experience.label}</p>
+                        <ul>
+                          {All_Data.experience.options.map((curr, i) =>(
+                            <li key={i}>{curr}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 ) : (
                   <ul>
                     {currentPackage?.itenerary?.map((ele, i) => (
@@ -77,7 +111,11 @@ const Model = () => {
                         <h3>
                           {ele?.meal !== "" ? "Meal : " : null} {ele?.meal}
                         </h3>
-                        <p>{ele?.activities}</p>
+                        <ul style={{ listStyleType: "initial" }}>
+                          {ele?.activities.map((curr, i) => (
+                            <li key={i}>{curr}</li>
+                          ))}
+                        </ul>
                       </li>
                     ))}
                   </ul>
@@ -100,6 +138,8 @@ const Section = styled.div`
   left: 0;
   z-index: 4;
   padding: 5rem 10rem;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   @media only screen and (max-width: 768px) {
     padding: 2rem;
   }
@@ -209,20 +249,63 @@ const Section = styled.div`
         .model_content_wrapper {
           .model_content {
             padding: 0 1rem;
-            p {
-              font-size: 1.4rem;
-              line-height: 2.2rem;
-              color: #444444;
-              text-align: justify;
-              hyphens: auto;
+
+            .discription_wrapper {
+              display: flex;
+              flex-direction: column;
+              gap: 1rem;
+              p {
+                font-size: 1.4rem;
+                line-height: 2.2rem;
+                color: #444444;
+                text-align: justify;
+                hyphens: auto;
+              }
+
+              .Inclusions_Exclusions {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                h1 {
+                  font-size: 2rem;
+                  color: ${Constants.Colors.secondary_color};
+                }
+
+                h2 {
+                  font-size: 1.8rem;
+                }
+
+                ul {
+                  margin-left: 2rem;
+
+                  li {
+                    font-size: 1.4rem;
+                    color: #444444;
+                    margin-bottom: 1rem;
+                  }
+                }
+                
+                .experience_wrraper{
+                  display: flex;
+                  flex-direction: column;
+                  gap: 1rem;
+
+                  h3{
+                    font-size: 1.4rem;
+                    color: #444444;
+                  }
+
+                }
+              }
+
             }
 
-            ul {
+            > ul {
               list-style: none;
               display: flex;
               flex-direction: column;
               gap: 2rem;
-              li {
+              > li {
                 display: flex;
                 flex-direction: column;
                 gap: 0.6rem;
@@ -234,7 +317,11 @@ const Section = styled.div`
                     font-size: 1.8rem;
                   }
                 }
-                p {
+                > ul {
+                  margin-left: 2rem;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 1rem;
                 }
               }
             }

@@ -33,11 +33,17 @@ const Section = styled.div`
   justify-content: center;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: ease-in-out 0.3s;
+  cursor: pointer;
   a {
     svg {
       font-size: 3rem;
       color: ${Constants.Colors.white_color};
     }
+  }
+
+  &:hover {
+    background-color: ${Constants.Colors.hover_color};
   }
 `;
 

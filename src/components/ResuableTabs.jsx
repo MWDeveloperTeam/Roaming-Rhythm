@@ -12,7 +12,7 @@ const ResuableTabs = ({ tab_title, activeTab, handleCategoryChange }) => {
             key={i}
             style={
               activeTab === ele
-                ? { backgroundColor: Constants.Colors.secondary_color }
+                ? { backgroundColor: Constants.Colors.secondary_color, color: "white" }
                 : null
             }
           >
@@ -36,14 +36,15 @@ const Tabs = styled.div`
     display: flex;
     gap: 1rem;
     li {
-      padding: .6rem 1rem;
+      padding: .7rem 1.2rem;
       color: ${Constants.Colors.primary_color};
       letter-spacing: 0.1rem;
       font-size: 1.6rem;
-      border-radius: 0.4rem;
-      background-color: #e3e2e2;
+      border-radius: 2rem;
+      background-color: #f1f1f1;
       cursor: pointer;
       text-transform: capitalize;
+      transition: cubic-bezier(.17,.67,.71,.1) .3s;
     }
 
     /* .active {

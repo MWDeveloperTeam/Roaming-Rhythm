@@ -8,7 +8,7 @@ import { DataContext } from "../context/DataContext";
 
 const Packages_Card = ({ pkg }) => {
   const phoneNumber = "+919596089568";
-  const message = `  Package Name : ${pkg?.title}, Duration: ${pkg?.duration}, Price : ${pkg?.price}`;
+  const message = `  Package Name : ${pkg?.title}, Duration: ${pkg?.duration}`;
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
     message
   )}`;
@@ -37,12 +37,12 @@ const Packages_Card = ({ pkg }) => {
             <MdFamilyRestroom />
             <span>{pkg?.family}</span>
           </p>
-          <h2 className="details_common">
+          {/* <h2 className="details_common">
             <FaRupeeSign /> <span>{pkg?.price} </span>
             <span style={{ fontSize: "1.2rem", fontWeight: 400 }}>
               / Per Person
             </span>
-          </h2>
+          </h2> */}
         </div>
         <div className="right_section">
           <Link to={whatsappUrl} target="_blank" className="book_now_button">
@@ -91,12 +91,15 @@ const Section = styled.div`
   .package_detial_wrapper {
     display: flex;
     margin-top: 1rem;
+    justify-self: flex-end;
+    flex: 1;
 
     .left_section {
       flex: 1;
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      align-self: flex-end;
 
       .details_common {
         display: flex;
@@ -118,15 +121,15 @@ const Section = styled.div`
       align-items: flex-end;
 
       a {
-        color: black;
+        color: ${Constants.Colors.white_color};
         font-size: 1.4rem;
-        background-color: ${Constants.Colors.hover_color};
+        background-color: ${Constants.Colors.secondary_color};
         border-radius: 50px;
         padding: 0.8rem 1.4rem;
         transition: ease-in-out 0.3s;
 
         &:hover {
-          background-color: ${Constants.Colors.secondary_color};
+          background-color: ${Constants.Colors.hover_color};
         }
 
         @media only screen and (max-width: 420px) {
@@ -139,6 +142,8 @@ const Section = styled.div`
 
   &:hover {
     transform: translateY(-1rem);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   }
   &:hover img {
     transform: scale(1.1);

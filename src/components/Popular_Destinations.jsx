@@ -14,6 +14,9 @@ import { URL } from "../resuable/URL";
 const Popular_Destinations = () => {
   const webData = useContext(DataContext);
   const { destinations } = webData.All_Data;
+  const kashmir_destinations = destinations.slice(0, 3);
+  const ladakh_destinations = destinations.slice(9, 12);
+  const new_array = [...kashmir_destinations, ...ladakh_destinations];
 
   return (
     <Section>
@@ -55,7 +58,7 @@ const Popular_Destinations = () => {
             className="swiper_main"
             spaceBetween={10}
           >
-            {destinations.map((ele, i) => (
+            {new_array.map((ele, i) => (
               <SwiperSlide className="slide_my" key={i}>
                 <img src={ele.img} alt="image" loading="lazy" />
                 <div className="slide_curtain">
@@ -134,14 +137,20 @@ const Section = styled.section`
       }
 
       a {
-        color: ${Constants.Colors.primary_color};
-        padding: 1.6rem 2rem;
-        background-color: ${Constants.Colors.hover_color};
         display: flex;
         font-size: 1.6rem;
         align-items: center;
         gap: 1rem;
         border-radius: 0.4rem;
+        transition: ease-in-out 0.3s;
+        padding: 1.2rem 1.6rem;
+        width: max-content;
+        color: ${Constants.Colors.white_color};
+        background-color: ${Constants.Colors.secondary_color};
+
+        &:hover {
+          background-color: ${Constants.Colors.hover_color};
+        }
 
         @media only screen and (max-width: 850px) {
           padding: 1.4rem 1.6rem;

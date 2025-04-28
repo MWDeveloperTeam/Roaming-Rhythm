@@ -2,25 +2,12 @@ import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { Constants } from "../../utils";
-import { URL } from "../../resuable/URL";
 import { DataContext } from "../../context/DataContext";
+import { useWindowScroll } from "../../resuable/useReize";
 
 const Menu = () => {
+  const { scrollY } = useWindowScroll();
   const webData = useContext(DataContext);
-
-  const [showDrowDown, setShowDrowDown] = useState(false);
-  const [showDesDrowDown, setShowDesDrowDown] = useState(false);
-  // const menuData = [
-  //   { label: "Home", href: URL.Home },
-  //   {
-  //     label: "packages",
-  //     href: URL.Package,
-  //   },
-  //   { label: "destinations", href: URL.Destinations },
-  //   // { label: "gallery", href: URL.Gallery },
-  //   { label: "contact", href: URL.Contact },
-  // ];
-
   return (
     <Nav>
       <ul className="main_manu_wrapper">
@@ -29,50 +16,16 @@ const Menu = () => {
             <NavLink
               to={ele.href}
               className={({ isActive }) => (isActive ? "active" : "")}
+              style={
+                scrollY > 200
+                  ? { color: Constants.Colors.primary_color }
+                  : { color: Constants.Colors.white_color }
+              }
             >
               {ele.label}
             </NavLink>
           </li>
         ))}
-
-        {/* <li>
-          <NavLink
-            to="/"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to={URL.Kashmir_Destination}
-            onMouseOver={() => setShowDrowDown(true)}
-            onMouseLeave={() => setShowDrowDown(false)}
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            packages
-          </NavLink>
-          
-        </li>
-        <li>
-          <NavLink
-            to={URL.Kashmir_Destination}
-            onMouseOver={() => setShowDesDrowDown(true)}
-            onMouseLeave={() => setShowDesDrowDown(false)}
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            destinations
-          </NavLink>
-          
-        </li>
-        <li>
-          <NavLink
-            to={URL.Contact}
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            contact
-          </NavLink>
-        </li> */}
       </ul>
     </Nav>
   );
@@ -102,12 +55,12 @@ const Nav = styled.nav`
           font-size: 1.4rem;
         }
         &:hover {
-          color: ${Constants.Colors.hover_color};
+          color: ${Constants.Colors.secondary_color} !important;
         }
       }
 
       .active {
-        color: ${Constants.Colors.secondary_color};
+        color: ${Constants.Colors.secondary_color} !important;
       }
 
       & > ul {

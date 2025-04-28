@@ -3,11 +3,13 @@ import { ResuableHeader, ResuableTabs } from "../../components";
 import Destination_Card from "../../components/Destination_Card";
 import styled from "styled-components";
 import { DataContext } from "../../context/DataContext";
+import Destinations_model from "../../components/Destinations_model";
 
 const Destinations = () => {
   const [activeTab, setActiveTab] = useState("All");
   const WebData = useContext(DataContext);
   const { destinations } = WebData.All_Data;
+  const { des_open } = WebData;
 
   const filteredPackages =
     activeTab === "All"
@@ -29,9 +31,10 @@ const Destinations = () => {
       />
       <div className="Kashmir_destinations_Wrapper">
         {filteredPackages.map((ele, i) => (
-          <Destination_Card key={i} img={ele?.img} title={ele?.title} />
+          <Destination_Card key={i} des={ele} />
         ))}
       </div>
+      {des_open && <Destinations_model />}
     </Section>
   );
 };

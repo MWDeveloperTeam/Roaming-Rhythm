@@ -17,7 +17,6 @@ const Header = () => {
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
     message
   )}`;
-  // const [showSideMenu, setShowSideMenu] = useState(false);
   const { width } = useWindowSize();
   const { scrollY } = useWindowScroll();
 
@@ -25,13 +24,20 @@ const Header = () => {
     <Section
       style={
         scrollY > 200
-          ? { backgroundColor: Constants.Colors.primary_color }
+          ? {
+              backgroundColor: Constants.Colors.white_color,
+              boxShadow: "2px 2px 10px #00000023",
+            }
           : { backgroundColor: "rgba(255, 255, 255, 0.1)" }
       }
     >
       <div className="logo_wrapper">
         {width <= 768 && (
-          <FaBarsStaggered onClick={() => setShowSideMenu(!showSideMenu)} />
+          <FaBarsStaggered
+            className="side_bar_open_icon"
+            color={scrollY > 200 ? Constants.Colors.secondary_color : null}
+            onClick={() => setShowSideMenu(!showSideMenu)}
+          />
         )}
         <Link to={URL.Home}>
           <img src={webData.All_Data.logo} alt="Logo" />
@@ -49,7 +55,7 @@ const Header = () => {
               : { backgroundColor: Constants.Colors.primary_color }
           }
         >
-          Book No
+          Book Now
         </Link>
       </div>
       <SideMenu />
@@ -84,13 +90,22 @@ const Section = styled.section`
     gap: 2rem;
     align-items: center;
     svg {
-      color: white;
+      color: ${Constants.Colors.white_color};
       font-size: 2.5rem;
+      transition: ease-in-out 0.3s;
+
+      &:hover {
+        color: ${Constants.Colors.hover_color} !important;
+      }
     }
     a {
       img {
         width: 14rem;
         filter: drop-shadow(5px 5px 10px rgba(255, 255, 255));
+        transition: ease-in-out 0.3s;
+        &:hover {
+          opacity: 0.6;
+        }
 
         @media only screen and (max-width: 768px) {
           width: 8rem;
@@ -105,7 +120,7 @@ const Section = styled.section`
     gap: ${Constants.Spacing.large};
 
     .book_now {
-      padding: 15px 25px;
+      padding: 12px 20px;
       cursor: pointer;
       background-color: ${Constants.Colors.primary_color};
       border: none;
@@ -116,7 +131,7 @@ const Section = styled.section`
       color: ${Constants.Colors.white_color};
 
       &:hover {
-        background-color: ${Constants.Colors.secondary_color} !important;
+        background-color: ${Constants.Colors.hover_color} !important;
       }
 
       @media only screen and (max-width: 460px) {

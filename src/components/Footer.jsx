@@ -27,12 +27,12 @@ const Footer = () => {
           <div className="email">
             <MdEmail />
             <Link to={`mailto:${"info@roamingthythm.in"}`}>
-              info@roamingthythm.in
+              info@roamingrhythm.in
             </Link>
           </div>
           <div className="location">
             <MdLocationOn />
-            <span>Main Market Kremshore, Budgam, Kashmir, 191111</span>
+            <span>Kremshore, Budgam, Kashmir, 191111</span>
           </div>
         </div>
         <div className="quick_links_wrapper">
@@ -55,7 +55,7 @@ const Footer = () => {
           <p>Copyright © {new Date().getFullYear()} Roaming Rhythm</p>
         </div>
         <div className="made_wrapper">
-          <Link to="https://compix.in/">Compix Multimedia</Link>
+          <Link to="https://compix.in/">Made With ❤️ Compix Multimedia</Link>
         </div>
       </div>
     </Section>

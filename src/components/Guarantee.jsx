@@ -11,17 +11,28 @@ const Guarantee = () => {
       <div className="card">
         <img src={svg1} alt="icon" />
         <h2>Best Price Guarantee</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>
+          Finding the perfect trip at the perfect price is our priority.
+          {/* With
+          our Best Price Guarantee, you can book with us today without
+          hesitation. */}
+        </p>
       </div>
       <div className="card">
         <img src={svg2} alt="icon" />
         <h2>Easy & Quick Booking</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>
+          Explore the Kashmir with ease! Find and book your perfect trip quickly
+          and effortlessly.
+        </p>
       </div>
       <div className="card">
         <img src={svg3} alt="icon" />
         <h2>Customer Care 24/7</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>
+          Our dedicated customer care team is available 24/7 to ensure your
+          travel plans are always smooth.
+        </p>
       </div>
     </Section>
   );
@@ -33,7 +44,7 @@ const Section = styled.section`
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1rem;
 
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     padding: 10rem 2rem;
   }
   .card {
@@ -44,23 +55,23 @@ const Section = styled.section`
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    transition: ease-in-out .3s;
+    transition: ease-in-out 0.3s;
 
-    &:hover{
-        box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
     }
 
-    h2{
-        font-size: 2rem;
-        font-weight: 500;
+    h2 {
+      font-size: 2rem;
+      font-weight: 500;
     }
 
-    p{
-        font-size: 1.6rem;
-        text-align: center;
-        color: ${Constants.Colors.text_color_main};
-        line-height: 2.5rem;
-        font-weight: 300;
+    p {
+      font-size: 1.4rem;
+      text-align: center;
+      color: ${Constants.Colors.text_color_main};
+      line-height: 1.9rem;
+      font-weight: 300;
     }
   }
 `;

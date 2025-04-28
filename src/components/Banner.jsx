@@ -32,8 +32,8 @@ const Banner = () => {
     e.preventDefault();
     setSending(true);
     try {
-      await emailjs.send("service_8kjvgcc", "template_jd3p6vu", userQuery, {
-        publicKey: "mXLu8RBXdLxrYgSVz",
+      await emailjs.send("service_l35c8rl", "template_oqe8xze", userQuery, {
+        publicKey: "xq1guUbqbRoxUe2ZF",
       });
       toast.success("Message Successfully Send 🎉🎉🎉");
       setSending(false);
@@ -77,11 +77,12 @@ const Banner = () => {
                   <SwiperSlide
                     key={i}
                     style={{ width: "100%", height: "100%" }}
+                    onClick={() => console.log("hello")}
                   >
                     <div className="banner_card" key={i}>
                       <img src={ele.img} alt="image" loading="lazy" />
                       <p className="banner_card_title">{ele.title}</p>
-                      <p>{ele.people}</p>
+                      {/* <p>{ele.people}</p> */}
                     </div>
                   </SwiperSlide>
                 ))}

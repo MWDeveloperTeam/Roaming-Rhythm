@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { Constants } from "../utils";
 import { Link } from "react-router-dom";
+import { DataContext } from "../context/DataContext";
 
-const Destination_Card = ({ img, title }) => {
+const Destination_Card = ({ des }) => {
+  const WebData = useContext(DataContext);
+  const { setDes_Open, setCurrentDestination } = WebData;
   return (
     <Card>
-      <img src={img} alt="Image" loading="lazy" />
+      <img src={des.img} alt="Image" loading="lazy" />
       <div className="card_curtain">
-        <h3>{title}</h3>
-        <Link>See Details</Link>
+        <h3>{des.title}</h3>
+        <Link
+          onClick={() => {
+            setDes_Open(true);
+            setCurrentDestination(des);
+          }}
+        >
+          See Details
+        </Link>
       </div>
     </Card>
   );

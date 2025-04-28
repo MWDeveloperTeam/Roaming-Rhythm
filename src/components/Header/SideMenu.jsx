@@ -38,7 +38,11 @@ const SideMenu = () => {
           <ul>
             {All_Data.menuData.map((ele, i) => (
               <li key={i}>
-                <NavLink to={ele.href} onClick={() => setShowSideMenu(false)}>
+                <NavLink
+                  to={ele.href}
+                  onClick={() => setShowSideMenu(false)}
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                >
                   {ele.label}
                 </NavLink>
               </li>
@@ -56,13 +60,14 @@ const SideBar = styled.div`
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.471);
+  background-color: rgba(0, 0, 0, 0.9);
   position: fixed;
   top: 0;
   left: 0;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   transform: translate(${(props) => props.translate});
-  transition: ease-in-out 0.3s;
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s;
 
   .side_wrapper {
     width: 90%;
@@ -126,6 +131,9 @@ const SideBar = styled.div`
             &:hover {
               ${Constants.Colors.white_color};
             }
+          }
+          .active {
+            color: ${Constants.Colors.secondary_color} !important;
           }
         }
       }
